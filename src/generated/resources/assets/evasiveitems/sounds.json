@@ -1,0 +1,18 @@
+{
+  "tip_toe": {
+    "subtitle": "evasiveitems.subtitle.tip_toe",
+    "sounds": [
+      "evasiveitems:tip_toe"
+    ]
+  },
+  "tip": {
+    "subtitle": "evasiveitems.subtitle.tip",
+    "sounds": [
+      "evasiveitems:tip1",
+      "evasiveitems:tip2",
+      "evasiveitems:tip3",
+      "evasiveitems:tip4",
+      "evasiveitems:tip5"
+    ]
+  }
+}

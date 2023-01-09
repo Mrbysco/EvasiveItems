@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+issueTrackerURL="https://github.com/Mrbysco/EvasiveItems/issues"
+license="MIT"
+
+[[mods]]
+modId="evasiveitems"
+version="${file.jarVersion}"
+displayName="Evasive Items"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/evasive-items"
+authors="Mrbysco"
+description='''
+Keep your eyes off the prize in this unique take on item collection.
+'''
+credits="TelepathicGrunt for the idea"
+[[dependencies.evasiveitems]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.18.2,1.19)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.evasiveitems]]
+modId="forge"
+mandatory=true
+versionRange="[40.0.35,)"
+ordering="NONE"
+side="BOTH"
