@@ -2,15 +2,15 @@ package com.mrbysco.evasiveitems.data.client;
 
 import com.mrbysco.evasiveitems.EvasiveItems;
 import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 
 public class EvasiveSoundProvider extends SoundDefinitionsProvider {
 
-	public EvasiveSoundProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, EvasiveItems.MOD_ID, existingFileHelper);
+	public EvasiveSoundProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+		super(packOutput, EvasiveItems.MOD_ID, existingFileHelper);
 	}
 
 	@Override

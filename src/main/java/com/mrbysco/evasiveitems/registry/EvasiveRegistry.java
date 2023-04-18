@@ -17,8 +17,8 @@ public class EvasiveRegistry {
 			new EvasiveEffect(0x0FF898a8d));
 
 	public static final RegistryObject<SoundEvent> TIP = SOUND_EVENTS.register("tip", () ->
-			new SoundEvent(new ResourceLocation(EvasiveItems.MOD_ID, "tip")));
+			SoundEvent.createVariableRangeEvent(new ResourceLocation(EvasiveItems.MOD_ID, "tip")));
 
 	public static final RegistryObject<SoundEvent> TIP_TOE = SOUND_EVENTS.register("tip_toe", () ->
-			new SoundEvent(new ResourceLocation(EvasiveItems.MOD_ID, "tip_toe")));
+			SoundEvent.createVariableRangeEvent(new ResourceLocation(EvasiveItems.MOD_ID, "tip_toe")));
 }

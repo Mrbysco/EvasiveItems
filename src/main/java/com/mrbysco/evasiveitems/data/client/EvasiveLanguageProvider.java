@@ -2,7 +2,7 @@ package com.mrbysco.evasiveitems.data.client;
 
 import com.mrbysco.evasiveitems.EvasiveItems;
 import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -11,8 +11,8 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Supplier;
 
 public class EvasiveLanguageProvider extends LanguageProvider {
-	public EvasiveLanguageProvider(DataGenerator gen) {
-		super(gen, EvasiveItems.MOD_ID, "en_us");
+	public EvasiveLanguageProvider(PackOutput packOutput) {
+		super(packOutput, EvasiveItems.MOD_ID, "en_us");
 	}
 
 	@Override
