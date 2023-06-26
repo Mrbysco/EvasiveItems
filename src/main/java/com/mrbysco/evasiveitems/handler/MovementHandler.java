@@ -19,7 +19,7 @@ public class MovementHandler {
 			return;
 
 		if (event.phase == TickEvent.Phase.END && event.side.isServer() && player != null && !player.isCreative() && !player.isSpectator()) {
-			ServerLevel serverLevel = (ServerLevel) player.level;
+			ServerLevel serverLevel = (ServerLevel) player.level();
 			List<ItemEntity> itemEntities = new ArrayList<>();
 			serverLevel.getAllEntities().forEach(entity -> {
 				if (entity instanceof ItemEntity itemEntity && !itemEntity.getItem().isEmpty() && itemEntity.isAlive()) {
