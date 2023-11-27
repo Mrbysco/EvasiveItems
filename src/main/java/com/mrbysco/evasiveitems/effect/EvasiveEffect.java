@@ -21,7 +21,7 @@ public class EvasiveEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean isDurationEffectTick(int duration, int amplifier) {
+	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
 		return true;
 	}
 
@@ -45,7 +45,7 @@ public class EvasiveEffect extends MobEffect {
 			final boolean playSound = EvasiveConfig.COMMON.playSound.get();
 			final float volume = EvasiveConfig.COMMON.soundVolume.get().floatValue();
 			for (ItemEntity item : itemEntities) {
-				Vec3 itemPos = new Vec3(item.getX(), item.getY() - item.getMyRidingOffset() + item.getBbHeight() / 2, item.getZ());
+				Vec3 itemPos = new Vec3(item.getX(), item.getY() - item.getMyRidingOffset(livingEntity) + item.getBbHeight() / 2, item.getZ());
 				Vec3 push = MovementHandler.getPushMovement(playerPos, itemPos, force);
 				item.setDeltaMovement(push);
 				item.hurtMarked = true;

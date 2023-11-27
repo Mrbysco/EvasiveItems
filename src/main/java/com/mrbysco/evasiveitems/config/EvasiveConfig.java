@@ -1,16 +1,16 @@
 package com.mrbysco.evasiveitems.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class EvasiveConfig {
 	public static class Common {
-		public final ForgeConfigSpec.BooleanValue onlyEffects;
-		public final ForgeConfigSpec.DoubleValue moveStrength;
-		public final ForgeConfigSpec.BooleanValue playSound;
-		public final ForgeConfigSpec.DoubleValue soundVolume;
+		public final ModConfigSpec.BooleanValue onlyEffects;
+		public final ModConfigSpec.DoubleValue moveStrength;
+		public final ModConfigSpec.BooleanValue playSound;
+		public final ModConfigSpec.DoubleValue soundVolume;
 
-		Common(ForgeConfigSpec.Builder builder) {
+		Common(ModConfigSpec.Builder builder) {
 			builder.comment("General Settings")
 					.push("General");
 
@@ -38,11 +38,11 @@ public class EvasiveConfig {
 		}
 	}
 
-	public static final ForgeConfigSpec commonSpec;
+	public static final ModConfigSpec commonSpec;
 	public static final Common COMMON;
 
 	static {
-		final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
+		final Pair<Common, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Common::new);
 		commonSpec = specPair.getRight();
 		COMMON = specPair.getLeft();
 	}

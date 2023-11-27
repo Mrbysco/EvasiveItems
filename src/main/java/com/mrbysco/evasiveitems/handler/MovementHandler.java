@@ -7,7 +7,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.TickEvent;
+import net.neoforged.neoforge.event.TickEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,9 @@ import java.util.List;
 public class MovementHandler {
 	public static void onPlayerTick(final TickEvent.PlayerTickEvent event) {
 		Player player = event.player;
-		if (EvasiveConfig.COMMON.onlyEffects.get())
-			return;
-
 		if (event.phase == TickEvent.Phase.END && event.side.isServer() && player != null && !player.isCreative() && !player.isSpectator()) {
+			if (EvasiveConfig.COMMON.onlyEffects.get()) return;
+
 			ServerLevel serverLevel = (ServerLevel) player.level();
 			List<ItemEntity> itemEntities = new ArrayList<>();
 			serverLevel.getAllEntities().forEach(entity -> {
@@ -36,7 +35,7 @@ public class MovementHandler {
 			final boolean playSound = EvasiveConfig.COMMON.playSound.get();
 			final float volume = EvasiveConfig.COMMON.soundVolume.get().floatValue();
 			for (ItemEntity item : itemEntities) {
-				Vec3 itemPos = new Vec3(item.getX(), item.getY() - item.getMyRidingOffset() + item.getBbHeight() / 2, item.getZ());
+				Vec3 itemPos = new Vec3(item.getX(), item.getY() - item.getMyRidingOffset(player) + item.getBbHeight() / 2, item.getZ());
 				Vec3 push = getPushMovement(playerPos, itemPos, force);
 				item.setDeltaMovement(push);
 				item.hurtMarked = true;

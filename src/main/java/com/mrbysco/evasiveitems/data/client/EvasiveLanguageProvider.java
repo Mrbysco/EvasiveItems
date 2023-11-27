@@ -5,8 +5,7 @@ import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 import java.util.function.Supplier;
 
@@ -24,7 +23,7 @@ public class EvasiveLanguageProvider extends LanguageProvider {
 		addSubtitle(EvasiveRegistry.TIP, "Tip Toe");
 	}
 
-	public void addSubtitle(RegistryObject<SoundEvent> sound, String name) {
+	public void addSubtitle(Supplier<SoundEvent> sound, String name) {
 		this.addSubtitle(sound.get(), name);
 	}
 
