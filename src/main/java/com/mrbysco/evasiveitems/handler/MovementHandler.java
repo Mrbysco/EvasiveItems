@@ -63,6 +63,6 @@ public class MovementHandler {
 		double d0 = subtractedVec.length();
 		subtractedVec = subtractedVec.normalize();
 		double d1 = normalizedViewVec.dot(subtractedVec);
-		return d1 > 1.0D - 0.75D / d0 ? player.hasLineOfSight(item) : false;
+		return d1 > 1.0D - 0.75D / d0 && player.hasLineOfSight(item);
 	}
 }
