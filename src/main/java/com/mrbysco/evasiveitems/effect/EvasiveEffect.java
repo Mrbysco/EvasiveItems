@@ -26,7 +26,7 @@ public class EvasiveEffect extends MobEffect {
 	}
 
 	@Override
-	public void applyEffectTick(LivingEntity livingEntity, int amplifier) {
+	public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
 		if (livingEntity instanceof Player player && !player.level().isClientSide && !player.isCreative() && !player.isSpectator()) {
 			ServerLevel serverLevel = (ServerLevel) player.level();
 			List<ItemEntity> itemEntities = new ArrayList<>();
@@ -45,7 +45,7 @@ public class EvasiveEffect extends MobEffect {
 			final boolean playSound = EvasiveConfig.COMMON.playSound.get();
 			final float volume = EvasiveConfig.COMMON.soundVolume.get().floatValue();
 			for (ItemEntity item : itemEntities) {
-				Vec3 itemPos = new Vec3(item.getX(), item.getY() - item.getMyRidingOffset(livingEntity) + item.getBbHeight() / 2, item.getZ());
+				Vec3 itemPos = new Vec3(item.getX(), item.getY() - item.getPassengerRidingPosition(livingEntity).y() + item.getBbHeight() / 2, item.getZ());
 				Vec3 push = MovementHandler.getPushMovement(playerPos, itemPos, force);
 				item.setDeltaMovement(push);
 				item.hurtMarked = true;
@@ -55,5 +55,6 @@ public class EvasiveEffect extends MobEffect {
 				}
 			}
 		}
+		return true;
 	}
 }

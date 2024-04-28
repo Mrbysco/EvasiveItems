@@ -4,7 +4,9 @@ import com.mojang.logging.LogUtils;
 import com.mrbysco.evasiveitems.config.EvasiveConfig;
 import com.mrbysco.evasiveitems.handler.MovementHandler;
 import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -16,8 +18,8 @@ public class EvasiveItems {
 	public static final String MOD_ID = "evasiveitems";
 	private static final Logger LOGGER = LogUtils.getLogger();
 
-	public EvasiveItems(IEventBus eventBus) {
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, EvasiveConfig.commonSpec);
+	public EvasiveItems(IEventBus eventBus, Dist dist, ModContainer container) {
+		container.registerConfig(ModConfig.Type.COMMON, EvasiveConfig.commonSpec);
 
 		EvasiveRegistry.MOB_EFFECTS.register(eventBus);
 		EvasiveRegistry.SOUND_EVENTS.register(eventBus);
