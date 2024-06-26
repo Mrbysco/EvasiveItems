@@ -35,6 +35,6 @@ public class EvasiveSoundProvider extends SoundDefinitionsProvider {
 	}
 
 	public ResourceLocation modLoc(String name) {
-		return new ResourceLocation(EvasiveItems.MOD_ID, name);
+		return ResourceLocation.fromNamespaceAndPath(EvasiveItems.MOD_ID, name);
 	}
 }

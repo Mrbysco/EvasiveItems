@@ -3,6 +3,7 @@ package com.mrbysco.evasiveitems.handler;
 import com.mrbysco.evasiveitems.config.EvasiveConfig;
 import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -15,10 +16,10 @@ import java.util.List;
 public class MovementHandler {
 	public static void onPlayerTick(final PlayerTickEvent.Post event) {
 		Player player = event.getEntity();
-		if (!player.level().isClientSide && player != null && !player.isCreative() && !player.isSpectator()) {
+		if (player instanceof ServerPlayer serverPlayer && !player.isCreative() && !player.isSpectator()) {
 			if (EvasiveConfig.COMMON.onlyEffects.get()) return;
 
-			ServerLevel serverLevel = (ServerLevel) player.level();
+			ServerLevel serverLevel = serverPlayer.serverLevel();
 			List<ItemEntity> itemEntities = new ArrayList<>();
 			serverLevel.getAllEntities().forEach(entity -> {
 				if (entity instanceof ItemEntity itemEntity && !itemEntity.getItem().isEmpty() && itemEntity.isAlive()) {
@@ -27,17 +28,14 @@ public class MovementHandler {
 			});
 			itemEntities.removeIf(itemEntity -> !isLookedAtBy(player, itemEntity));
 
-			double x = player.getX();
-			double y = player.getY() + 0.75;
-			double z = player.getZ();
-			Vec3 playerPos = new Vec3(x, y, z);
+			Vec3 playerPos = player.getEyePosition();
 			final float force = EvasiveConfig.COMMON.moveStrength.get().floatValue();
 			final boolean playSound = EvasiveConfig.COMMON.playSound.get();
 			final float volume = EvasiveConfig.COMMON.soundVolume.get().floatValue();
 			for (ItemEntity item : itemEntities) {
 				Vec3 itemPos = new Vec3(item.getX(), item.getY() - item.getPassengerRidingPosition(player).y() + item.getBbHeight() / 2, item.getZ());
 				Vec3 push = getPushMovement(playerPos, itemPos, force);
-				item.setDeltaMovement(push);
+				item.setDeltaMovement(item.getDeltaMovement().add(push));
 				item.hurtMarked = true;
 
 				if (playSound && serverLevel.getGameTime() % 2 == 0) {
@@ -53,7 +51,7 @@ public class MovementHandler {
 		if (distance > 0) {
 			delta = delta.normalize();
 		}
-		Vec3 push = delta.scale(force);
+		Vec3 push = delta.scale(force * 3);
 		return new Vec3(push.x, 0, push.z);
 	}
 

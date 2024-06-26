@@ -23,8 +23,8 @@ public class EvasiveConfig {
 					.push("Evasion");
 
 			moveStrength = builder
-					.comment("The strength used to move the items away when looked at [Default: 0.14]")
-					.defineInRange("moveStrength", 0.14, 0, 16);
+					.comment("The strength used to move the items away when looked at [Default: 0.24]")
+					.defineInRange("moveStrength", 0.24, 0, 16);
 
 			playSound = builder
 					.comment("If items moving should make a sound [Default: true]")

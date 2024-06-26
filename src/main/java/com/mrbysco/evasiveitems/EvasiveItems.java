@@ -7,7 +7,6 @@ import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.NeoForge;
@@ -16,7 +15,7 @@ import org.slf4j.Logger;
 @Mod(EvasiveItems.MOD_ID)
 public class EvasiveItems {
 	public static final String MOD_ID = "evasiveitems";
-	private static final Logger LOGGER = LogUtils.getLogger();
+	public static final Logger LOGGER = LogUtils.getLogger();
 
 	public EvasiveItems(IEventBus eventBus, Dist dist, ModContainer container) {
 		container.registerConfig(ModConfig.Type.COMMON, EvasiveConfig.commonSpec);

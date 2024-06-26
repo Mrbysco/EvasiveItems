@@ -19,8 +19,8 @@ public class EvasiveRegistry {
 			new EvasiveEffect(0x0FF898a8d));
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> TIP = SOUND_EVENTS.register("tip", () ->
-			SoundEvent.createVariableRangeEvent(new ResourceLocation(EvasiveItems.MOD_ID, "tip")));
+			SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(EvasiveItems.MOD_ID, "tip")));
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> TIP_TOE = SOUND_EVENTS.register("tip_toe", () ->
-			SoundEvent.createVariableRangeEvent(new ResourceLocation(EvasiveItems.MOD_ID, "tip_toe")));
+			SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(EvasiveItems.MOD_ID, "tip_toe")));
 }
