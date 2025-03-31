@@ -12,7 +12,7 @@ public class EvasiveConfig {
 
 		Common(ModConfigSpec.Builder builder) {
 			builder.comment("General Settings")
-					.push("General");
+					.push("general");
 
 			onlyEffects = builder
 					.comment("Only move items of players that have the Stinky effect [Default: false]")
@@ -20,7 +20,7 @@ public class EvasiveConfig {
 
 			builder.pop();
 			builder.comment("Evasive Settings")
-					.push("Evasion");
+					.push("evasion");
 
 			moveStrength = builder
 					.comment("The strength used to move the items away when looked at [Default: 0.24]")
