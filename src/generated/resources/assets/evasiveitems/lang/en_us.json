@@ -1,6 +1,18 @@
 {
   "effect.evasiveitems.stinky": "Stinky",
   "effect.evasiveitems.stinky.description": "The user is so smelly that items get repelled.",
+  "evasiveitems.configuration.evasion": "Evasion",
+  "evasiveitems.configuration.evasion.tooltip": "Evasive Settings",
+  "evasiveitems.configuration.general": "General",
+  "evasiveitems.configuration.general.tooltip": "General Settings",
+  "evasiveitems.configuration.moveStrength": "Move Strength",
+  "evasiveitems.configuration.moveStrength.tooltip": "The strength used to move the items away when looked at [Default: 0.24]",
+  "evasiveitems.configuration.onlyEffects": "Only Effects",
+  "evasiveitems.configuration.onlyEffects.tooltip": "Only move items of players that have the Stinky effect [Default: false]",
+  "evasiveitems.configuration.playSound": "Play Sound",
+  "evasiveitems.configuration.playSound.tooltip": "If items moving should make a sound [Default: true]",
+  "evasiveitems.configuration.soundVolume": "Sound Volume",
+  "evasiveitems.configuration.soundVolume.tooltip": "The volume of the sound when items move [Default: 0.05]",
   "evasiveitems.subtitle.tip": "Tip Toe",
   "evasiveitems.subtitle.tip_toe": "Tip-Toeing"
 }
