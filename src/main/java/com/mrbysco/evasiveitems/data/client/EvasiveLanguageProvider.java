@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
 import net.neoforged.neoforge.common.data.LanguageProvider;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
@@ -21,6 +22,13 @@ public class EvasiveLanguageProvider extends LanguageProvider {
 
 		addSubtitle(EvasiveRegistry.TIP_TOE, "Tip-Toeing");
 		addSubtitle(EvasiveRegistry.TIP, "Tip Toe");
+
+		addConfig("general", "General", "General Settings");
+		addConfig("onlyEffects", "Only Effects", "Only move items of players that have the Stinky effect [Default: false]");
+		addConfig("evasion", "Evasion", "Evasive Settings");
+		addConfig("moveStrength", "Move Strength", "The strength used to move the items away when looked at [Default: 0.24]");
+		addConfig("playSound", "Play Sound", "If items moving should make a sound [Default: true]");
+		addConfig("soundVolume", "Sound Volume", "The volume of the sound when items move [Default: 0.05]");
 	}
 
 	public void addSubtitle(Supplier<SoundEvent> sound, String name) {
@@ -34,5 +42,18 @@ public class EvasiveLanguageProvider extends LanguageProvider {
 
 	private void addEffectDescription(Supplier<? extends MobEffect> key, String description) {
 		add(key.get().getDescriptionId() + ".description", description);
+	}
+
+	/**
+	 * Add the translation for a config entry
+	 *
+	 * @param path        The path of the config entry
+	 * @param name        The name of the config entry
+	 * @param description The description of the config entry (optional in case of targeting "title" or similar entries that have no tooltip)
+	 */
+	private void addConfig(String path, String name, @Nullable String description) {
+		this.add(EvasiveItems.MOD_ID + ".configuration." + path, name);
+		if (description != null && !description.isEmpty())
+			this.add(EvasiveItems.MOD_ID + ".configuration." + path + ".tooltip", description);
 	}
 }
