@@ -26,7 +26,7 @@ public class EvasiveEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+	public boolean applyEffectTick(ServerLevel level, LivingEntity livingEntity, int amplifier) {
 		if (livingEntity instanceof Player player && !player.level().isClientSide && !player.isCreative() && !player.isSpectator()) {
 			ServerLevel serverLevel = (ServerLevel) player.level();
 			List<ItemEntity> itemEntities = new ArrayList<>();

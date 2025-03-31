@@ -4,13 +4,12 @@ import com.mrbysco.evasiveitems.EvasiveItems;
 import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 
 public class EvasiveSoundProvider extends SoundDefinitionsProvider {
 
-	public EvasiveSoundProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
-		super(packOutput, EvasiveItems.MOD_ID, existingFileHelper);
+	public EvasiveSoundProvider(PackOutput packOutput) {
+		super(packOutput, EvasiveItems.MOD_ID);
 	}
 
 	@Override
