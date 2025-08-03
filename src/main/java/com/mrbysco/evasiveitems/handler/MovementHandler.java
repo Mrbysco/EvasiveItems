@@ -19,7 +19,7 @@ public class MovementHandler {
 		if (player instanceof ServerPlayer serverPlayer && !player.isCreative() && !player.isSpectator()) {
 			if (EvasiveConfig.COMMON.onlyEffects.get()) return;
 
-			ServerLevel serverLevel = serverPlayer.serverLevel();
+			ServerLevel serverLevel = serverPlayer.level();
 			List<ItemEntity> itemEntities = new ArrayList<>();
 			serverLevel.getAllEntities().forEach(entity -> {
 				if (entity instanceof ItemEntity itemEntity && !itemEntity.getItem().isEmpty() && itemEntity.isAlive()) {
