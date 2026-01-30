@@ -3,7 +3,7 @@ package com.mrbysco.evasiveitems.data.client;
 import com.mrbysco.evasiveitems.EvasiveItems;
 import com.mrbysco.evasiveitems.registry.EvasiveRegistry;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 
 public class EvasiveSoundProvider extends SoundDefinitionsProvider {
@@ -29,11 +29,11 @@ public class EvasiveSoundProvider extends SoundDefinitionsProvider {
 				));
 	}
 
-	public String modSubtitle(ResourceLocation id) {
+	public String modSubtitle(Identifier id) {
 		return EvasiveItems.MOD_ID + ".subtitle." + id.getPath();
 	}
 
-	public ResourceLocation modLoc(String name) {
-		return ResourceLocation.fromNamespaceAndPath(EvasiveItems.MOD_ID, name);
+	public Identifier modLoc(String name) {
+		return Identifier.fromNamespaceAndPath(EvasiveItems.MOD_ID, name);
 	}
 }

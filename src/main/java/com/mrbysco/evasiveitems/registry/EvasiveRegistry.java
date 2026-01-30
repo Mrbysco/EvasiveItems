@@ -3,7 +3,7 @@ package com.mrbysco.evasiveitems.registry;
 import com.mrbysco.evasiveitems.EvasiveItems;
 import com.mrbysco.evasiveitems.effect.EvasiveEffect;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -19,8 +19,8 @@ public class EvasiveRegistry {
 			new EvasiveEffect(0x0FF898a8d));
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> TIP = SOUND_EVENTS.register("tip", () ->
-			SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(EvasiveItems.MOD_ID, "tip")));
+			SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(EvasiveItems.MOD_ID, "tip")));
 
 	public static final DeferredHolder<SoundEvent, SoundEvent> TIP_TOE = SOUND_EVENTS.register("tip_toe", () ->
-			SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(EvasiveItems.MOD_ID, "tip_toe")));
+			SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(EvasiveItems.MOD_ID, "tip_toe")));
 }
